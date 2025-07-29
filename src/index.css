@@ -1,0 +1,745 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-green: #B9C7B8; /* Наш акцентный светло-зеленый */
+  --dark-text: #1A1A1A; /* Почти черный для основного текста */
+  --background-light: #F9F9F9; /* Очень светлый фон */
+  --border-color: #EAEAEA;
+}
+/* Сброс базовых стилей и настройка шрифта */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif; /* Применяем новый шрифт ко всему сайту */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-light);
+  color: var(--dark-text);
+}
+
+/* --- Header Styles --- */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-logo {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 5px; /* Создает эффект R E N T */
+}
+
+.header-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 0; /* <-- ВОТ ОНО, ГЛАВНОЕ ИСПРАВЛЕНИЕ */
+}
+
+/* Наша "черная таблетка" */
+.nav-background {
+  position: absolute;
+  background-color: var(--dark-text);
+  border-radius: 20px;
+  z-index: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.header-nav a {
+  margin: 0 15px;
+  padding: 8px 15px; /* Добавляем внутренние отступы для красоты */
+  font-weight: 500;
+  color: var(--dark-text);
+  text-decoration: none;
+  position: relative; /* Чтобы текст был над "таблеткой" */
+  z-index: 1;
+  transition: color 0.3s ease-in-out; /* Плавное изменение цвета текста */
+}
+
+/* Текст активной ссылки делаем белым */
+.header-nav a.active {
+  color: white;
+}
+
+/* --- Home Page Styles --- */
+
+.hero-section {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-top: 50px;
+  flex-grow: 1;
+}
+
+.hero-left {
+  flex: 1; /* Занимает 1 часть доступного пространства */
+  background-color: var(--primary-green);
+  padding: 40px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.hero-right {
+  flex: 1;
+  padding-left: 50px;
+}
+
+.hero-right h1 {
+  font-size: 80px;
+  line-height: 1.1;
+  margin: 0;
+  font-weight: 600;
+}
+
+.hero-right .subtitle {
+  margin: 20px 0;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0; /* <-- ВОТ ОНО, НАШЕ ИСПРАВЛЕНИЕ */
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--dark-text);
+  border: 1px solid var(--dark-text);
+}
+
+.car-image {
+  width: 120%; /* Делаем картинку чуть больше блока */
+  position: relative;
+  left: -10%;
+  margin-top: 20px;
+}
+
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background-color: var(--dark-text);
+  color: white;
+}
+
+/* Общие стили для ссылок */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+}
+
+
+.app-user-controls {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Контейнер занимает как минимум всю высоту экрана */
+}
+
+.app-main {
+  flex-grow: 1; /* Главный контент занимает все доступное пространство */
+  padding: 20px 40px;
+}
+
+.app-footer {
+  background-color: white; /* Футер будет на белом фоне */
+  width: 100%;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.05); /* Легкая тень сверху */
+}
+
+/* --- Классы для форм --- */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  gap: 15px;
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.form-input {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box; /* Важно, чтобы padding не увеличивал ширину */
+}
+
+.form-button {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  background: #28a745;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.form-button:hover {
+  background: #218838;
+}
+
+.form-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #dc3545;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* --- Стили для обновленных элементов шапки --- */
+.search-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--dark-text);
+}
+
+.user-greeting {
+  font-weight: 500;
+}
+
+.btn-logout {
+  background: none;
+  border: none;
+  color: #dc3545; /* Красный цвет для опасного действия */
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* --- Стили для Корзины --- */
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+}
+
+.cart-item-delete-button {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cart-item-delete-button:hover {
+  background: #5b1018;
+}
+
+.cart-checkout-button {
+  padding: 15px 25px;
+  font-size: 18px;
+  color: white;
+  background-color: #28a745;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.cart-checkout-button:hover {
+  background-color: #0c3214;
+  border-radius: 50px;
+}
+
+.cart-modal-confirm-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.cart-modal-confirm-container-button {
+  /* border: 1px; */
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cart-modal-confirm-container-button-delete {
+  padding: 8px 16px;
+  background: #dc3545;
+  border-radius: 5px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* --- Стили для Мини-Корзины --- */
+
+.mini-cart-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Легкое затемнение, чтобы показать модальность, но не такое сильное, как у Modal */
+  background-color: rgba(0, 0, 0, 0.2); 
+  z-index: 990; /* Чуть ниже, чем у главного модального окна */
+}
+
+.mini-cart {
+  position: fixed;
+  top: 70px; /* Немного ниже шапки сайта */
+  right: 20px;
+  width: 320px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 991;
+}
+
+.mini-cart-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px;
+  overflow-y: auto; /* Позволяет прокручивать, если товаров много */
+}
+
+.mini-cart-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.mini-cart-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1em;
+}
+
+/* Каталог */
+
+.catalog-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Карточки авто */
+
+.car-card {
+  border: 1px solid rgba(224, 114, 114, 0.51);
+  border-radius: 9px;
+  padding: 16px;
+  width: 300px;
+  box-shadow: 0 5px 4px rgba(1, 155, 251, 0.35);
+  text-decoration: dotted;
+  color: inherit;
+}
+
+.car-card-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 9px;
+}
+
+.car-card-button {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  margin-top: 10px;
+  background-color: #1E90FF;
+  color: white;
+  text-align: center;
+  border-radius: 4px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* --- Стили для скелетонов --- */
+
+.car-card.skeleton {
+  cursor: default;
+}
+
+/* Анимация пульсации */
+@keyframes pulse {
+  0% {
+    background-color: #e0e0e0;
+  }
+  50% {
+    background-color: #f0f0f0;
+  }
+  100% {
+    background-color: #e0e0e0;
+  }
+}
+
+.skeleton-image {
+  width: 100%;
+  height: 180px;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.skeleton-text {
+  height: 20px;
+  width: 80%;
+  margin-top: 15px;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.skeleton-text.short {
+  width: 50%;
+  margin-top: 10px;
+}
+
+/* --- Стили для скелетона страницы автомобиля --- */
+
+.skeleton-car-page-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.skeleton-car-image {
+  width: 100%;
+  height: 400px;
+  border-radius: 8px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.skeleton-title {
+  height: 36px;
+  width: 70%;
+  margin-top: 20px;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.skeleton-calendar {
+  width: 100%;
+  height: 300px;
+  margin-top: 15px;
+  border-radius: 8px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* Модальное окно */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px 40px;
+  border-radius: 8px;
+  min-width: 300px;
+  max-width: 90%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  position: relative; /* Для позиционирования кнопки закрытия */
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+.modal-close-button:hover {
+  color: #ea0707;
+}
+
+/* --- Стили для Поиска --- */
+.search-bar-container {
+  position: relative;
+}
+
+.search-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 8px 15px;
+}
+
+.search-input-wrapper input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+}
+
+.search-results {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  z-index: 100;
+}
+
+.search-results li a {
+  display: block;
+  padding: 10px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.search-results li a:hover {
+  background-color: #f0f0f0;
+  text-decoration: none;
+}
+
+/* --- Стили для секции статистики --- */
+
+.stats-section {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  padding: 40px;
+  border-bottom: 1px solid var(--border-color); /* Разделитель */
+}
+
+.copyright-section {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.stat-item {
+  position: relative; /* Необходимо для позиционирования псевдо-элемента */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Создаем полупрозрачный круг позади текста */
+.stat-item::before {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-color: #E9E9E9; /* Цвет круга */
+  border-radius: 50%; /* Делаем его круглым */
+  z-index: 0; /* Помещаем его под текст */
+  opacity: 0.5; /* Делаем полупрозрачным */
+}
+
+.stat-number {
+  font-size: 72px;
+  font-weight: 600;
+  margin: 0;
+  position: relative; /* Чтобы текст был над кругом */
+  z-index: 1;
+}
+
+.stat-description {
+  font-size: 14px;
+  color: #666; /* Более светлый текст для описания */
+  max-width: 200px; /* Ограничиваем ширину текста */
+  margin-top: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+/* src/index.css */
+
+/* --- Стили для адаптивной навигации --- */
+
+/* По умолчанию кнопка-бургер скрыта */
+.burger-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1001; /* Поверх всего */
+}
+
+/* Стили для выезжающей панели */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -100%; /* Изначально панель спрятана за правым краем экрана */
+  width: 280px;
+  height: 100vh;
+  background-color: white;
+  box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+  z-index: 1000;
+  padding: 80px 30px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  transition: right 0.3s ease-in-out;
+}
+
+/* Когда у панели есть класс .open, она выезжает */
+.mobile-nav.open {
+  right: 0;
+}
+
+.mobile-nav a, .mobile-nav button {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/*  MEDIA QUERY - точка перелома */
+/* Эти стили применяются, только если ширина экрана 992px или меньше */
+@media (max-width: 992px) {
+  /* Скрываем десктопную навигацию */
+  .header-nav {
+    display: none;
+  }
+
+  /* Показываем кнопку-бургер */
+  .burger-menu-btn {
+    display: flex;
+    order: 1; /* Меняем порядок, чтобы кнопка была после поиска */
+  }
+
+  /* Для лучшего вида можно скрыть и поиск на самых маленьких экранах */
+  .header-actions {
+    display: none;
+  }
+}
+
+/* --- Стили для иконки корзины --- */
+.cart-btn {
+  position: relative; /* Необходимо для позиционирования счетчика */
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px; /* Размер иконки */
+  color: var(--dark-text);
+  padding: 5px;
+}
+
+.cart-count {
+  position: absolute;
+  top: -5px; /* Сдвигаем значок вверх */
+  right: -8px; /* Сдвигаем значок вправо */
+  background-color: var(--primary-green); /* Используем наш акцентный цвет */
+  color: var(--dark-text);
+  font-weight: bold;
+  border-radius: 50%; /* Делаем его круглым */
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  border: 2px solid white; /* Белая рамка, чтобы отделить от иконки */
+}
+
+/* --- Стили для выпадающего календаря --- */
+
+.date-picker-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+}
+
+/* 1. Внешняя обертка, которую мы анимируем */
+.date-picker-wrapper {
+  /* Скрытое состояние по умолчанию */
+  max-height: 0;
+  overflow: hidden; /* Обязательно! */
+  
+  /* Плавный переход для max-height */
+  transition: max-height 0.6s ease-out;
+}
+
+/* 2. Когда обертка открыта */
+.date-picker-wrapper.open {
+  max-height: 500px; /* Заведомо больше высоты календаря */
+  /* width: 70%; */
+  border-radius: 50px;
+}
+
+
+/* 3. Внутренний контейнер с отступами и рамками */
+.date-picker-content {
+  margin-top: 10px;
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  border-radius: 8px;
+  background: #fff;
+}
+
+/* Стилизуем сам календарь из библиотеки react-day-picker */
+.rdp {
+  margin: 1em auto;
+}
